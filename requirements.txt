@@ -1,0 +1,7 @@
+streamlit
+requests
+beautifulsoup4
+feedparser
+fugashi[unidic-lite]
+deep-translator
+psycopg2-binary

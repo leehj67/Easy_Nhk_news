@@ -1,0 +1,29 @@
+[
+  {
+    "lemma": "津波",
+    "surface": "津波",
+    "article_url": "https://nhkeasier.com/story/9461/",
+    "article_title": "「今でも私の中では息子は14歳のままです」",
+    "sentence": "宮城県名取市 の 大川 駿 さんは、15 年 前 の3 月 11 日 、 津波 で 亡 くなりました。",
+    "sentence_translation": "미야기현 나토리시의 오카와 하야오씨는, 15년 전의 3월 11일, 쓰나미에서 죽었습니다.",
+    "seen_at": "2026-03-12T03:24:46"
+  },
+  {
+    "lemma": "警察庁",
+    "surface": "警察庁",
+    "article_url": "https://nhkeasier.com/story/9460/",
+    "article_title": "東日本大震災から今日で15年",
+    "sentence": "警察庁 によると、 地震 や 津波 で 亡 くなった 人 は 3月 1日 で1 万 5901 人 です。",
+    "sentence_translation": "경찰청에 따르면 지진이나 해일로 사망한 사람은 3월 1일에 1만 5901명입니다.",
+    "seen_at": "2026-03-12T03:07:50"
+  },
+  {
+    "lemma": "大震災",
+    "surface": "大震災",
+    "article_url": "https://nhkeasier.com/story/9460/",
+    "article_title": "東日本大震災から今日で15年",
+    "sentence": "15 年 前 の2011 年 3 月 11 日 、 東日本大震災 が 起 こりました。",
+    "sentence_translation": "15년 전인 2011년 3월 11일 동일본 대지진이 일어났습니다.",
+    "seen_at": "2026-03-12T03:06:22"
+  }
+]

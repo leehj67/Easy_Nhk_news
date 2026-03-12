@@ -1,0 +1,69 @@
+[
+  {
+    "lemma": "大震災",
+    "surface_examples": [
+      "大震災"
+    ],
+    "reading": "だいしんさい",
+    "meanings": [
+      "대지진(재해)",
+      "매우 파괴적인 지진"
+    ],
+    "pos": "Noun",
+    "tags": [
+      "news"
+    ],
+    "first_seen_at": "2026-03-12T03:06:22",
+    "last_seen_at": "2026-03-12T03:06:22",
+    "seen_count": 1,
+    "saved": true,
+    "status": "learning",
+    "memo": ""
+  },
+  {
+    "lemma": "警察庁",
+    "surface_examples": [
+      "警察庁"
+    ],
+    "reading": "けいさつちょう",
+    "meanings": [
+      "경찰청",
+      "NPA",
+      "게이사츠쵸",
+      "경찰청(일본)"
+    ],
+    "pos": "Noun, Place, Wikipedia definition",
+    "tags": [
+      "news"
+    ],
+    "first_seen_at": "2026-03-12T03:07:50",
+    "last_seen_at": "2026-03-12T04:33:37",
+    "seen_count": 1,
+    "saved": true,
+    "status": "learning",
+    "memo": ""
+  },
+  {
+    "lemma": "津波",
+    "surface_examples": [
+      "津波"
+    ],
+    "reading": "つなみ",
+    "meanings": [
+      "쓰나미",
+      "해일",
+      "쓰나미",
+      "쓰나미"
+    ],
+    "pos": "Noun, Place, Wikipedia definition",
+    "tags": [
+      "news"
+    ],
+    "first_seen_at": "2026-03-12T03:24:46",
+    "last_seen_at": "2026-03-12T04:31:46",
+    "seen_count": 1,
+    "saved": true,
+    "status": "learning",
+    "memo": ""
+  }
+]

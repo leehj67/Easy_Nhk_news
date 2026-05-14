@@ -1,5 +1,9 @@
 [server]
 enableStaticServing = true
 
+# 상단 우측 햄버거·개발자 메뉴를 줄여 웹 브라우저 느낌 완화 (배포 URL에서는 더 '앱'에 가깝게)
+[client]
+toolbarMode = "minimal"
+
 [browser]
 gatherUsageStats = false

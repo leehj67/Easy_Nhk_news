@@ -1,0 +1,8 @@
+{
+  "appId": "com.nhkeasy.reader",
+  "appName": "NHK Easy Reader",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

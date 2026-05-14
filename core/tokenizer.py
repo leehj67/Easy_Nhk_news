@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 """문장 분리, 단어 추출, 형태소 분석"""
-import logging
 import re
 from typing import Dict, List
-
-logger = logging.getLogger(__name__)
 
 _tagger = None
 
@@ -224,15 +221,19 @@ def merge_compound_nouns(tokens: List[Dict]) -> List[Dict]:
     return result
 
 
+def get_sentence_tokens(sentence: str) -> List[Dict]:
+    """문장의 모든 토큰 (surface, lemma) - 본문 하이라이트용"""
+    tagger = _get_tagger()
+    return [_normalize_lemma(_token_to_dict(w)) for w in tagger(sentence)]
+
+
 def extract_core_words(sentence: str) -> List[Dict]:
-    """학습용 핵심 단어 2~5개 추출"""
+    """학습용 핵심 단어 추출 (품사/중복 필터 적용, 개수 제한 없음)"""
     tagger = _get_tagger()
     raw_tokens = [_normalize_lemma(_token_to_dict(w)) for w in tagger(sentence)]
-    logger.debug("extract_core_words: sentence=%s | tokens=%s", sentence[:60], [(t["surface"], t.get("lemma")) for t in raw_tokens[:15]])
     merged = merge_numeric_expressions(raw_tokens)
     merged = merge_compound_nouns(merged)
     filtered = [t for t in merged if not is_stop_token(t) and t["pos1"] in _CONTENT_POS1]
-    logger.debug("extract_core_words: merged=%s", [(t["surface"], t.get("lemma")) for t in merged])
 
     semantic_words = []
     numeric_words = []
@@ -261,12 +262,7 @@ def extract_core_words(sentence: str) -> List[Dict]:
         else:
             semantic_words.append(word_obj)
 
-    out = semantic_words[:4]
-    if len(out) < 3:
-        out.extend(numeric_words[: 5 - len(out)])
-
-    logger.debug("extract_core_words: core_words=%s", [(w["surface"], w["lemma"]) for w in out])
-    return out[:5]
+    return semantic_words + numeric_words
 
 
 def get_word_info_from_dict(wd: Dict) -> tuple:

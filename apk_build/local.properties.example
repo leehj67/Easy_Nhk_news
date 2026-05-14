@@ -1,0 +1,4 @@
+# Android SDK 경로 (Android Studio 설치 시 자동 생성됨)
+# Windows: C:\\Users\\USER\\AppData\\Local\\Android\\Sdk
+# 이 파일을 local.properties 로 복사 후 sdk.dir 수정
+sdk.dir=C\:\\Users\\USER\\AppData\\Local\\Android\\Sdk

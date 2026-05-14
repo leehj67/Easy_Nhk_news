@@ -1,0 +1,17 @@
+{
+  "genian": {
+    "portal_url": "https://YOUR_GENIAN_PORTAL_URL",
+    "username": "YOUR_EMPLOYEE_ID",
+    "password": "YOUR_PASSWORD"
+  },
+  "server": {
+    "app_dir": "C:\\Users\\USER\\Desktop\\Easy_Nhk_news",
+    "port": 8510,
+    "host": "127.0.0.1",
+    "run_script": "run_mobile.py"
+  },
+  "schedule": {
+    "weekday_start_hour": 18,
+    "check_interval_minutes": 60
+  }
+}

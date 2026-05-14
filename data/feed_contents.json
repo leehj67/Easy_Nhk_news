@@ -1,0 +1,42 @@
+[
+  {
+    "id": "fc_b002db60c4f84f59",
+    "user_id": 1,
+    "content_type": "x_post",
+    "japanese_text": "仕事ないと今日終わらん。地獄。",
+    "korean_translation": "일하지 않으면 오늘 끝나지 않습니다. 지옥.",
+    "difficulty_score": 0.38,
+    "known_word_ratio": 0.275,
+    "generated_by": "fallback",
+    "source": "ai_generated",
+    "created_at": "2026-05-14T04:44:06",
+    "theme": "daily_life",
+    "grammar_points": [
+      "口語の省略",
+      "感情表現"
+    ],
+    "new_words": [],
+    "tone": "fallback_template",
+    "similar_expressions": []
+  },
+  {
+    "id": "fc_22e5be7e86c74de4",
+    "user_id": 1,
+    "content_type": "x_post",
+    "japanese_text": "今日の津波、大震災すぎて無理。",
+    "korean_translation": "오늘의 쓰나미, 대지진 너무 무리.",
+    "difficulty_score": 0.38,
+    "known_word_ratio": 0.525,
+    "generated_by": "fallback",
+    "source": "ai_generated",
+    "created_at": "2026-05-14T04:26:23",
+    "theme": "daily_life",
+    "grammar_points": [
+      "口語の省略",
+      "感情表現"
+    ],
+    "new_words": [],
+    "tone": "fallback_template",
+    "similar_expressions": []
+  }
+]

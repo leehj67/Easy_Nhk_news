@@ -17,6 +17,12 @@ APP_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = APP_DIR / "data"
 DB_PATH = APP_DIR / "nhk_reader.db"
 
+# 브랜딩 (탭 제목·스플래시·히어로) — 고양이 마스코트 톤
+APP_DISPLAY_NAME = "NHK Easy Japanese Reader"
+APP_PAGE_TITLE = "🐱 NHK Easy Reader"
+APP_PWA_META_TITLE = "🐱 NHK Easy"
+APP_BRAND_TAGLINE = "고양이 마스코트와 함께 · やさしいニュースと単語"
+
 # 기존 프로젝트 루트 settings (마이그레이션용)
 LEGACY_SETTINGS_PATH = APP_DIR / "settings.json"
 
@@ -25,10 +31,31 @@ SETTINGS_PATH = DATA_DIR / "settings.json"
 WORDS_PATH = DATA_DIR / "words.json"
 WORD_OCCURRENCES_PATH = DATA_DIR / "word_occurrences.json"
 ARTICLES_PATH = DATA_DIR / "articles.json"
+RSS_LINKS_CACHE_PATH = DATA_DIR / "rss_links_cache.json"
+
+# 개인화 피드 (JSON — PostgreSQL 스키마와 동일한 필드를 dict로 보관)
+FEED_CONTENTS_PATH = DATA_DIR / "feed_contents.json"
+FEED_VOCAB_MAP_PATH = DATA_DIR / "content_vocabulary_map.json"
+LEARNING_PROFILE_PATH = DATA_DIR / "user_learning_profile.json"
+DAILY_STATS_PATH = DATA_DIR / "daily_learning_stats.json"
+
+# AI 생성 (선택) — Gemini 무료 한도 또는 로컬 Ollama
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip() or os.environ.get("GOOGLE_API_KEY", "").strip()
+OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "http://127.0.0.1:11434").strip().rstrip("/")
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.2").strip()
 
 # API
 NHK_EASY_RSS = "https://nhkeasier.com/feed/"
+# 표준 일본어: NHK(일본 내 접속만) 대신 毎日新聞 사용 (해외 접속 가능)
+NHK_NEWS_RSS = "https://mainichi.jp/rss/etc/mai/today.rss"
 JISHO_API = "https://jisho.org/api/v1/search/words"
+
+# 네이버 오픈API (선택) — 백과사전 검색 + Papago 일→한
+# https://developers.naver.com/ 애플리케이션 등록 후 검색·Papago 사용 설정
+NAVER_CLIENT_ID = os.environ.get("NAVER_CLIENT_ID", "").strip()
+NAVER_CLIENT_SECRET = os.environ.get("NAVER_CLIENT_SECRET", "").strip()
+NAVER_ENCYC_API = "https://openapi.naver.com/v1/search/encyc.json"
+PAPAGO_NMT_API = "https://openapi.naver.com/v1/papago/n2mt"
 
 # PostgreSQL (환경변수 또는 settings.json 우선)
 DB_HOST = os.environ.get("DB_HOST", "localhost")
@@ -91,6 +118,11 @@ def ensure_data_dir() -> None:
         (WORDS_PATH, []),
         (WORD_OCCURRENCES_PATH, []),
         (ARTICLES_PATH, []),
+        (RSS_LINKS_CACHE_PATH, {}),
+        (FEED_CONTENTS_PATH, []),
+        (FEED_VOCAB_MAP_PATH, []),
+        (LEARNING_PROFILE_PATH, {}),
+        (DAILY_STATS_PATH, []),
     ]:
         if path == SETTINGS_PATH and LEGACY_SETTINGS_PATH.exists():
             if not SETTINGS_PATH.exists():

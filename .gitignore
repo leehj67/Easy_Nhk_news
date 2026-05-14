@@ -10,6 +10,7 @@ env/
 
 # 환경/비밀
 .env
+.github_token.txt
 
 # DB 비밀번호 포함
 data/settings.json
@@ -17,11 +18,15 @@ data/settings.json
 # SQLite (사용 시)
 *.db
 
-# Streamlit
-.streamlit/
+# Streamlit (로컬 비밀만 제외 — config.toml 은 저장소에 포함해 Cloud 정적 파일 사용)
+.streamlit/secrets.toml
 
 # cloudflared (바이너리)
 cloudflared.exe
+
+# PC 워치독 설정 (비밀번호 포함)
+pc_watchdog/config.json
+pc_watchdog/logs/
 
 # IDE
 .idea/
@@ -32,3 +37,18 @@ cloudflared.exe
 # OS
 .DS_Store
 Thumbs.db
+
+# apk_build — 로컬 SDK/노드/빌드 산출물 (설정·www·스크립트는 커밋)
+apk_build/node_modules/
+apk_build/android_sdk/
+apk_build/jdk17/
+apk_build/*.zip
+apk_build/android/.gradle/
+apk_build/android/app/build/
+apk_build/android/capacitor-cordova-android-plugins/build/
+apk_build/android/local.properties
+apk_build/APP_URL.txt
+apk_build/URL_REGISTRY.txt
+
+# 임시 스크린샷
+ChatGPT*.png

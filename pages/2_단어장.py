@@ -2,10 +2,12 @@
 """단어장 - 검색/관리용 단어장 메인 화면"""
 import streamlit as st
 
+import core.streamlit_bootstrap  # noqa: F401
+
 from core.auth_context import require_login
 from core import (
-    init_db,
     inject_custom_css,
+    render_theme_toggle,
     load_words,
     get_word_occurrences,
     get_word_occurrences_grouped_by_article,
@@ -15,6 +17,7 @@ from core import (
     render_status_badge,
     render_empty_state,
     lookup_dictionary,
+    highlight_word_in_sentence,
 )
 
 # 단어장 전용 CSS (개인 학습용 단어 관리 앱 톤)
@@ -103,8 +106,9 @@ def main() -> None:
     if not require_login():
         return
     inject_custom_css()
+    with st.sidebar:
+        render_theme_toggle(key="vocab_theme")
     st.markdown(VOCAB_CSS, unsafe_allow_html=True)
-    init_db()
 
     if "vocab_selected" not in st.session_state:
         st.session_state["vocab_selected"] = None
@@ -212,8 +216,8 @@ def _render_detail_panel(w: dict) -> None:
     last_seen = str(last_seen_raw)[:10] if last_seen_raw else ""
     seen_count = w.get("seen_count", 0)
 
+    info = lookup_dictionary(lemma, lemma)
     if not reading:
-        info = lookup_dictionary(lemma, lemma)
         reading = info.get("reading", "") or ""
 
     # ----- [헤더 영역] -----
@@ -236,6 +240,10 @@ def _render_detail_panel(w: dict) -> None:
         f'</div>',
         unsafe_allow_html=True,
     )
+
+    from core.ui_helpers import render_dictionary_extras
+
+    render_dictionary_extras(info, link_query=lemma, key_prefix=f"vocab-{lemma}")
 
     # ----- [섹션 1: 상태] -----
     st.markdown(
@@ -317,7 +325,9 @@ def _render_detail_panel(w: dict) -> None:
                 trans = occ.get("sentence_translation", "")
                 art_title = occ.get("article_title", "") or "기사"
                 art_url = occ.get("article_url", "")
-                st.markdown(f'<div class="vocab-example-jp">{sent}</div>', unsafe_allow_html=True)
+                surf = occ.get("surface", lemma)
+                sent_html = highlight_word_in_sentence(sent, surf, lemma=lemma)
+                st.markdown(f'<div class="vocab-example-jp">{sent_html}</div>', unsafe_allow_html=True)
                 if trans:
                     st.markdown(f'<div class="vocab-example-ko">{trans}</div>', unsafe_allow_html=True)
                 art_short = art_title[:40] + "…" if len(art_title) > 40 else art_title

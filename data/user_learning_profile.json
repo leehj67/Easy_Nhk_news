@@ -1,0 +1,15 @@
+{
+  "user_id": 1,
+  "current_level_estimate": "N5",
+  "known_word_count": 0,
+  "preferred_theme": "daily_life",
+  "preferred_content_type": "x_post",
+  "average_sentence_difficulty": 0.357,
+  "updated_at": "2026-05-14T04:46:41",
+  "reading_streak": 1,
+  "last_active_date": "2026-05-14",
+  "content_type_counts": {
+    "x_post": 1
+  },
+  "total_consumed_feeds": 1
+}

@@ -1,9 +1,19 @@
 # -*- coding: utf-8 -*-
 """NHK Easy Japanese Reader - core 모듈"""
+# inject_pwa_manifest는 경량 모듈로 먼저 로드 (다른 import 실패 시에도 사용 가능)
+try:
+    from .pwa import inject_pwa_manifest
+except (ImportError, AttributeError):
+    def inject_pwa_manifest() -> None:
+        pass  # PWA 주입 실패 시 no-op (streamlit 미초기화 등)
 from .config import APP_DIR, DATA_DIR, ensure_data_dir, get_db_config
 from .db import get_connection, transaction, test_connection, health_check
 from .dictionary import lookup_dictionary
-from .fetcher import fetch_easy_article_links, fetch_article_body
+from .fetcher import (
+    fetch_easy_article_links,
+    fetch_article_body,
+    fetch_article_links_by_difficulty,
+)
 from .storage import (
     init_db,
     load_settings,
@@ -36,6 +46,7 @@ from .services.article_service import (
 )
 from .tokenizer import split_sentences, extract_core_words
 from .translator import translate_text, check_api_status
+from .theme import render_theme_toggle
 from .ui_helpers import (
     inject_custom_css,
     render_header,
@@ -49,6 +60,7 @@ from .ui_helpers import (
     render_speak_button,
     render_status_badge,
     render_empty_state,
+    highlight_word_in_sentence,
 )
 
 __all__ = [
@@ -62,6 +74,7 @@ __all__ = [
     "health_check",
     "lookup_dictionary",
     "fetch_easy_article_links",
+    "fetch_article_links_by_difficulty",
     "fetch_article_body",
     "fetch_and_save_article",
     "init_db",
@@ -92,6 +105,8 @@ __all__ = [
     "translate_text",
     "check_api_status",
     "inject_custom_css",
+    "inject_pwa_manifest",
+    "render_theme_toggle",
     "render_header",
     "render_article_body",
     "render_full_translation",
@@ -103,4 +118,5 @@ __all__ = [
     "render_speak_button",
     "render_status_badge",
     "render_empty_state",
+    "highlight_word_in_sentence",
 ]

@@ -1,0 +1,612 @@
+{
+  "easy": {
+    "fetched_at": "2026-05-14T04:57:00Z",
+    "items": [
+      {
+        "title": "トランプ大統領　14日に中国の習近平国家主席と話をする",
+        "url": "https://nhkeasier.com/story/9616/",
+        "published": "Wed, 13 May 2026 20:05:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "3月にエアコンがたくさん売れた",
+        "url": "https://nhkeasier.com/story/9617/",
+        "published": "Wed, 13 May 2026 20:04:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "フィギュアスケートの坂本花織選手「全部やったという気持ち」",
+        "url": "https://nhkeasier.com/story/9618/",
+        "published": "Wed, 13 May 2026 20:03:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "富士山が噴火したときでも動く消防車",
+        "url": "https://nhkeasier.com/story/9619/",
+        "published": "Wed, 13 May 2026 20:02:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "円とドルの問題などで日本とアメリカの大臣が話をした",
+        "url": "https://nhkeasier.com/story/9612/",
+        "published": "Tue, 12 May 2026 20:10:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "お菓子の会社カルビー　主な商品の袋を白と黒の色だけにする",
+        "url": "https://nhkeasier.com/story/9613/",
+        "published": "Tue, 12 May 2026 20:09:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "外国人が病院で使うことができる便利なアプリ",
+        "url": "https://nhkeasier.com/story/9614/",
+        "published": "Tue, 12 May 2026 20:08:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "北海道　高校生たちが羊の毛を刈った",
+        "url": "https://nhkeasier.com/story/9615/",
+        "published": "Tue, 12 May 2026 20:07:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "ハンタウイルスが見つかった船　島に着いて客が降りた",
+        "url": "https://nhkeasier.com/story/9608/",
+        "published": "Mon, 11 May 2026 20:05:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "大阪府　道に穴があいて通れなくなった　直す工事をしている",
+        "url": "https://nhkeasier.com/story/9609/",
+        "published": "Mon, 11 May 2026 20:04:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "ニューヨークで日本の文化を紹介するパレードがあった",
+        "url": "https://nhkeasier.com/story/9610/",
+        "published": "Mon, 11 May 2026 20:03:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "北海道福島町　女性だけの相撲の大会があった",
+        "url": "https://nhkeasier.com/story/9611/",
+        "published": "Mon, 11 May 2026 20:02:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "高校生が乗っていたバスの事故　運転していた男を逮捕",
+        "url": "https://nhkeasier.com/story/9604/",
+        "published": "Fri, 8 May 2026 20:10:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "アメリカの裁判所「トランプ大統領が決めた関税は法律に違反」",
+        "url": "https://nhkeasier.com/story/9605/",
+        "published": "Fri, 8 May 2026 20:09:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "母の日のメッセージ「乳がんの検診を受けて」",
+        "url": "https://nhkeasier.com/story/9606/",
+        "published": "Fri, 8 May 2026 20:08:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "山で火事があった岩手県大槌町　ウニの漁が始まった",
+        "url": "https://nhkeasier.com/story/9607/",
+        "published": "Fri, 8 May 2026 20:07:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "福島県　高校生が乗ったバスが事故　1人亡くなって20人けが",
+        "url": "https://nhkeasier.com/story/9600/",
+        "published": "Thu, 7 May 2026 20:10:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "京都府の事件　男の子を殺した疑いで父親を逮捕",
+        "url": "https://nhkeasier.com/story/9601/",
+        "published": "Thu, 7 May 2026 20:09:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "クルーズ船で「ハンタウイルス」が広がる　3人が亡くなった",
+        "url": "https://nhkeasier.com/story/9602/",
+        "published": "Thu, 7 May 2026 20:08:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "長野県天龍村　新茶の葉をとる作業が始まる",
+        "url": "https://nhkeasier.com/story/9603/",
+        "published": "Thu, 7 May 2026 20:07:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "ハンマーで高校生を殴って逃げた疑い　容疑者を逮捕",
+        "url": "https://nhkeasier.com/story/9596/",
+        "published": "Fri, 1 May 2026 20:15:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "旭山動物園で働く男が逮捕された　動物園で妻を焼いた疑い",
+        "url": "https://nhkeasier.com/story/9597/",
+        "published": "Fri, 1 May 2026 20:14:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "高市総理大臣「ナフサは来年になっても足りそうだ」",
+        "url": "https://nhkeasier.com/story/9598/",
+        "published": "Fri, 1 May 2026 20:13:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "テニスの錦織圭さん「今年で選手をやめる」",
+        "url": "https://nhkeasier.com/story/9599/",
+        "published": "Fri, 1 May 2026 20:12:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "東京　ハンマーのようなもので殴られたりして高校生や警察官けが",
+        "url": "https://nhkeasier.com/story/9592/",
+        "published": "Thu, 30 Apr 2026 20:10:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "岩手県大槌町の山の火事　広がるのが止まった",
+        "url": "https://nhkeasier.com/story/9593/",
+        "published": "Thu, 30 Apr 2026 20:09:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "富山市　人が住むまちの中で熊に襲われて女性がけが",
+        "url": "https://nhkeasier.com/story/9594/",
+        "published": "Thu, 30 Apr 2026 20:08:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "「母の日」を前に　カーネーションを送る作業で忙しい",
+        "url": "https://nhkeasier.com/story/9595/",
+        "published": "Thu, 30 Apr 2026 20:07:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "岩手県の火事　「火がこれ以上大きくならないようにしたい」",
+        "url": "https://nhkeasier.com/story/9588/",
+        "published": "Tue, 28 Apr 2026 20:05:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "国連で原爆が落ちたあとの広島・長崎の写真などを展示",
+        "url": "https://nhkeasier.com/story/9589/",
+        "published": "Tue, 28 Apr 2026 20:04:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "りくりゅうペア「持っている力を全部出しました」",
+        "url": "https://nhkeasier.com/story/9590/",
+        "published": "Tue, 28 Apr 2026 20:03:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "福岡県　子どもたちが土の中から「たけのこ」を掘った",
+        "url": "https://nhkeasier.com/story/9591/",
+        "published": "Tue, 28 Apr 2026 20:02:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "27日の朝　北海道で大きい地震があった",
+        "url": "https://nhkeasier.com/story/9584/",
+        "published": "Mon, 27 Apr 2026 20:05:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "気象庁「大きい地震のときの準備を続けて」",
+        "url": "https://nhkeasier.com/story/9585/",
+        "published": "Mon, 27 Apr 2026 20:04:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "岩手県の山の火事　はじめて雨が降って火は少し弱くなった",
+        "url": "https://nhkeasier.com/story/9586/",
+        "published": "Mon, 27 Apr 2026 20:03:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "茨城県　1000匹の「こいのぼり」を飾った",
+        "url": "https://nhkeasier.com/story/9587/",
+        "published": "Mon, 27 Apr 2026 20:02:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "岩手県の山で1100ヘクタール以上が焼けた　まだ消えていない",
+        "url": "https://nhkeasier.com/story/9580/",
+        "published": "Fri, 24 Apr 2026 20:05:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "地震や津波の心配がある場所に行く場合は「準備が必要」",
+        "url": "https://nhkeasier.com/story/9581/",
+        "published": "Fri, 24 Apr 2026 20:04:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "モバイルバッテリー　飛行機の中で使うことが禁止になった",
+        "url": "https://nhkeasier.com/story/9582/",
+        "published": "Fri, 24 Apr 2026 20:03:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "オリンピックとパラリンピックの選手　25日に東京でパレード",
+        "url": "https://nhkeasier.com/story/9583/",
+        "published": "Fri, 24 Apr 2026 20:02:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "岩手県の山で火事　まだ火は消えていない",
+        "url": "https://nhkeasier.com/story/9576/",
+        "published": "Thu, 23 Apr 2026 20:10:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "宮城県塩釜市の保育園　地震のときどうするか話し合う",
+        "url": "https://nhkeasier.com/story/9577/",
+        "published": "Thu, 23 Apr 2026 20:09:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "株の価格　初めて6万円より高くなった",
+        "url": "https://nhkeasier.com/story/9578/",
+        "published": "Thu, 23 Apr 2026 20:08:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "外国人を雇うとき県などが外国の政府と約束した「覚書」を作る",
+        "url": "https://nhkeasier.com/story/9579/",
+        "published": "Thu, 23 Apr 2026 20:07:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "トランプ大統領「23日を過ぎても戦いを止める」",
+        "url": "https://nhkeasier.com/story/9572/",
+        "published": "Wed, 22 Apr 2026 20:05:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "北海道の小学校　地震や津波のときにどうしたらいいかを話した",
+        "url": "https://nhkeasier.com/story/9573/",
+        "published": "Wed, 22 Apr 2026 20:04:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "東京の遊園地で事故　働いていた女性が亡くなった",
+        "url": "https://nhkeasier.com/story/9574/",
+        "published": "Wed, 22 Apr 2026 20:03:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "「はしか」に気をつけて　授業が休みになった学校もある",
+        "url": "https://nhkeasier.com/story/9575/",
+        "published": "Wed, 22 Apr 2026 20:02:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "大分県の自衛隊で事故　訓練していた3人が亡くなった",
+        "url": "https://nhkeasier.com/story/9568/",
+        "published": "Tue, 21 Apr 2026 20:05:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      },
+      {
+        "title": "「182の市や町などでは大きい地震のときの準備をしてほしい」",
+        "url": "https://nhkeasier.com/story/9569/",
+        "published": "Tue, 21 Apr 2026 20:04:00 +0900",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=nhkeasier.com&sz=128"
+      }
+    ]
+  },
+  "standard": {
+    "fetched_at": "2026-05-14T04:57:01Z",
+    "items": [
+      {
+        "title": "米中首脳会談始まる　トランプ氏、習主席を「偉大な指導者」",
+        "url": "https://mainichi.jp/articles/20260514/k00/00m/030/090000c",
+        "published": "2026-05-14T12:35:59+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "米中首脳会談始まる、台湾問題やイラン情勢議論の見通し",
+        "url": "https://mainichi.jp/articles/20260514/k00/00m/030/076000c",
+        "published": "2026-05-14T11:57:41+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "アイリスオーヤマ、コメ生産に参入　パックご飯用、輸出も視野に",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/020/091000c",
+        "published": "2026-05-14T11:15:11+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "机後ろ向きにして授業参加させず　小4担任が不適切指導　栃木",
+        "url": "https://mainichi.jp/articles/20260514/k00/00m/040/062000c",
+        "published": "2026-05-14T10:52:48+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "夏の電気・ガス料金補助、政府検討　冷房需要高まる7～9月に",
+        "url": "https://mainichi.jp/articles/20260514/k00/00m/010/054000c",
+        "published": "2026-05-14T10:26:53+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "米中首脳会談開始へ　2025年10月以来　台湾問題など議論",
+        "url": "https://mainichi.jp/articles/20260514/k00/00m/030/051000c",
+        "published": "2026-05-14T11:36:32+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "自転車「青切符」、導入1カ月で2147件摘発　指導警告も増加",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/040/325000c",
+        "published": "2026-05-14T10:09:27+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "新潟知事選が告示　3選目指す現職に新人2氏挑む　31日投開票",
+        "url": "https://mainichi.jp/articles/20260510/k00/00m/010/016000c",
+        "published": "2026-05-14T10:07:49+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "天皇陛下が皇居の水田で田植え　昭和天皇から稲作受け継ぐ",
+        "url": "https://mainichi.jp/articles/20260514/k00/00m/040/014000c",
+        "published": "2026-05-14T08:24:28+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "岩手・盛岡などで震度4　M5.0　震源の深さは約10キロ",
+        "url": "https://mainichi.jp/articles/20260514/k00/00m/040/013000c",
+        "published": "2026-05-14T08:12:52+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "ガザ平和評議会のムラデノフ氏「武装解除ならハマスの政党容認」",
+        "url": "https://mainichi.jp/articles/20260514/k00/00m/030/011000c",
+        "published": "2026-05-14T08:57:48+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "イランとの交渉「進展していると思う」　バンス米副大統領が発言",
+        "url": "https://mainichi.jp/articles/20260514/k00/00m/030/010000c",
+        "published": "2026-05-14T07:13:38+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "ネタニヤフ首相、UAEを極秘訪問　対イランの戦闘の最中に",
+        "url": "https://mainichi.jp/articles/20260514/k00/00m/030/008000c",
+        "published": "2026-05-14T08:56:39+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "フィリピン上院で銃声騒ぎ　施設内にはICC逮捕状の議員",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/030/301000c",
+        "published": "2026-05-13T22:06:09+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "高市首相、6月のイギリス・イタリア訪問を調整　欧州訪問は初",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/010/287000c",
+        "published": "2026-05-13T21:30:49+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "トランプ氏が中国到着、8年半ぶり訪中　14日習近平氏と会談へ",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/030/293000c",
+        "published": "2026-05-13T22:10:23+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "元4番のサヨナラ打　大阪ガスが4大会ぶり優勝　JABA東北",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/050/282000c",
+        "published": "2026-05-13T21:08:35+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "「2人に申し訳ない」次女殺害容疑で母親再逮捕　福岡女児死亡",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/040/279000c",
+        "published": "2026-05-13T20:55:35+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "日産　2年連続巨額赤字、5330億円　27年3月期は黒字転換へ",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/020/274000c",
+        "published": "2026-05-13T23:45:30+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "前進も残った「抜け道」　再審見直し、検察抗告「原則禁止」",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/040/264000c",
+        "published": "2026-05-13T20:26:15+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "中3少女監禁　児相「学校から情報共有なかった」　東京・町田",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/040/263000c",
+        "published": "2026-05-13T20:38:18+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "サイン盗み日体大バレー部に追加処分、2部に自動降格　関東学連",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/050/239000c",
+        "published": "2026-05-13T22:00:44+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "被告「米兵に憧れ現実を軽視」　米軍基地侵入事件初公判",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/040/254000c",
+        "published": "2026-05-13T20:34:39+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "米中経済閣僚が協議　首脳会談控え、貿易・投資分野で地ならし",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/030/253000c",
+        "published": "2026-05-13T19:43:17+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "維新・藤田氏、脅迫の「起因」を否定　赤旗記者の名刺投稿巡り",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/010/209000c",
+        "published": "2026-05-13T19:36:22+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "Xで赤旗記者脅迫疑い、男性書類送検　維新・藤田氏の投稿引用",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/040/248000c",
+        "published": "2026-05-13T19:39:33+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "イラン、備蓄ミサイル「7割」維持か　トランプ氏「壊滅」主張も",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/030/246000c",
+        "published": "2026-05-13T20:32:40+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "ペットの希少カメ脱走か　岐阜の住宅地で発見　情報提供呼びかけ",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/040/232000c",
+        "published": "2026-05-13T19:10:48+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "生活保護費、減額→違法→再減額　原告ら20人が大阪府に審査請求",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/040/237000c",
+        "published": "2026-05-13T19:07:08+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "タイ政府がサッカーW杯の放映権交渉へ　首相「全試合無料に」",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/030/234000c",
+        "published": "2026-05-13T18:56:57+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "トランプ氏、13日夜に北京到着へ　「イラン情勢を長く話し合う」",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/030/236000c",
+        "published": "2026-05-13T21:24:06+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "平和記念公園も「浸水リスク」　世界の科学者ら気候変動対策訴え",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/040/224000c",
+        "published": "2026-05-13T18:32:47+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "大阪ガス、4大会ぶり2度目の優勝　JABA東北",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/050/199000c",
+        "published": "2026-05-13T21:23:37+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "特産の「飯岡貴味メロン」すくすく成長　出荷も開始　千葉・旭市",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/040/219000c",
+        "published": "2026-05-13T18:23:55+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "福岡航太朗七段が一力遼本因坊に勝利　本因坊戦第1局",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/200/171000c",
+        "published": "2026-05-13T19:04:06+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "チーム強化×デジタル人材育成　ギラヴァンツと九工大らがタッグ",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/050/217000c",
+        "published": "2026-05-13T18:17:17+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "茶殻散乱で多重事故　トラック運転手を道交法違反疑いで書類送検",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/040/204000c",
+        "published": "2026-05-13T19:11:49+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "ソフトバンクグループ決算、最終利益5兆円　日本企業で過去最高",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/020/196000c",
+        "published": "2026-05-13T17:27:54+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "「旧姓の使用拡大」法案、秋以降に提出先送りへ　日程確保困難に",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/010/195000c",
+        "published": "2026-05-13T17:19:46+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "夕日と道が一直線　熊本・長部田海床路、絶景に見物客集う",
+        "url": "https://mainichi.jp/articles/20260512/k00/00m/040/150000c",
+        "published": "2026-05-13T17:34:04+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "海外でのトラブルに無料弁護士相談　中国に続きフィリピンで開始",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/010/194000c",
+        "published": "2026-05-13T17:12:25+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "OECD事務総長、消費減税に否定的考え示す　「コストかかる」",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/020/181000c",
+        "published": "2026-05-13T16:53:52+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "乗客の女性に性的暴行疑い　タクシー運転手を逮捕　警視庁",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/040/176000c",
+        "published": "2026-05-13T16:45:11+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "長野・阿部守一知事、5選へ出馬表明　自ら多選の弊害言及も",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/010/168000c",
+        "published": "2026-05-13T16:15:08+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "国産「レアアース採掘船」構想　深海底で作業可能、自民が提言へ",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/010/165000c",
+        "published": "2026-05-13T19:24:53+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "iPS再生医療製品アムシェプリ、初の保険適用　薬価5530万円",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/100/153000c",
+        "published": "2026-05-13T18:22:21+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "アプリ市場改善へ　米団体、日本で活動開始　公取委への申告検討",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/020/138000c",
+        "published": "2026-05-13T15:19:09+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "リンゴ農園に不法就労タイ人あっせん容疑で3人逮捕　埼玉県警",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/040/055000c",
+        "published": "2026-05-13T19:39:27+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "3、4月のセ・リーグ月間MVPは阪神勢　高橋遥人＆佐藤輝明",
+        "url": "https://mainichi.jp/articles/20260512/k00/00m/050/135000c",
+        "published": "2026-05-13T13:00:08+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      },
+      {
+        "title": "首相、中傷動画報道を改めて否定　秘書の通信記録「確認できず」",
+        "url": "https://mainichi.jp/articles/20260513/k00/00m/010/078000c",
+        "published": "2026-05-13T20:33:00+09:00",
+        "thumbnail_url": "https://www.google.com/s2/favicons?domain=mainichi.jp&sz=128"
+      }
+    ]
+  }
+}

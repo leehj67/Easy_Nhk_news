@@ -1,0 +1,13 @@
+# URL 레지스트리 (동적 주소 모드)
+# 이 파일을 URL_REGISTRY.txt 로 복사 후, GitHub Gist raw URL 입력
+# 앱이 기동 시 이 URL에서 현재 서버 주소를 가져옵니다.
+#
+# 설정 방법:
+# 1. https://gist.github.com 에서 새 Gist 생성
+# 2. 파일명: url.json, 내용: {"url":"https://placeholder.trycloudflare.com"}
+# 3. Raw 버튼 클릭 → 주소창 URL 복사 (예: https://gist.githubusercontent.com/user/abc123/raw/url.json)
+# 4. 아래에 해당 URL 입력
+#
+# run_mobile.py에서 Gist 자동 업데이트를 위해 .env에 추가:
+#   GITHUB_TOKEN=ghp_xxxx (gist 권한 필요)
+#   GIST_ID=abc123 (Gist ID, raw URL에서 확인 가능)

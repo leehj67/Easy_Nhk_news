@@ -5,6 +5,65 @@ from typing import List, Optional
 from ..db import transaction
 
 
+def occurrence_exists(
+    user_id: int,
+    word_id: int,
+    article_id: int,
+    *,
+    sentence_id: Optional[int] = None,
+    context_sentence: Optional[str] = None,
+) -> bool:
+    """동일 occurrence 존재 여부. (user_id, word_id, article_id, sentence_id) 또는 fallback (context_sentence)"""
+    with transaction() as cur:
+        if sentence_id is not None:
+            cur.execute(
+                """
+                SELECT 1 FROM word_occurrences
+                WHERE user_id = %s AND word_id = %s AND article_id = %s AND sentence_id = %s
+                LIMIT 1
+                """,
+                (user_id, word_id, article_id, sentence_id),
+            )
+        elif context_sentence:
+            cur.execute(
+                """
+                SELECT 1 FROM word_occurrences
+                WHERE user_id = %s AND word_id = %s AND article_id = %s
+                  AND sentence_id IS NULL AND context_sentence = %s
+                LIMIT 1
+                """,
+                (user_id, word_id, article_id, context_sentence[:500]),
+            )
+        else:
+            return False
+        return cur.fetchone() is not None
+
+
+def add_occurrence_if_absent(
+    user_id: int,
+    word_id: int,
+    article_id: int,
+    surface: str,
+    context_sentence: str,
+    *,
+    sentence_id: Optional[int] = None,
+    context_translation: Optional[str] = None,
+) -> bool:
+    """동일 occurrence 없을 때만 INSERT. 반환: True=추가됨, False=이미 존재"""
+    if occurrence_exists(
+        user_id, word_id, article_id,
+        sentence_id=sentence_id,
+        context_sentence=context_sentence if sentence_id is None else None,
+    ):
+        return False
+    add_occurrence(
+        user_id, word_id, article_id, surface, context_sentence,
+        sentence_id=sentence_id,
+        context_translation=context_translation,
+    )
+    return True
+
+
 def add_occurrence(
     user_id: int,
     word_id: int,

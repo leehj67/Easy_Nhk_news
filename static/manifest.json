@@ -1,0 +1,21 @@
+{
+  "name": "🐱 NHK Easy Japanese Reader",
+  "short_name": "🐱 NHK Easy",
+  "description": "고양이 마스코트와 함께 · NHK Easier RSS · 형태소 · 번역 · 단어장",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -178,6 +178,11 @@ CREATE INDEX idx_word_occurrences_article_id ON word_occurrences(article_id);
 CREATE INDEX idx_word_occurrences_sentence_id ON word_occurrences(sentence_id);
 CREATE INDEX idx_word_occurrences_seen_at ON word_occurrences(user_id, word_id, seen_at DESC);
 
+-- 중복 occurrence 방지: (user_id, word_id, article_id, sentence_id) unique (sentence_id NOT NULL인 경우)
+CREATE UNIQUE INDEX idx_word_occurrences_unique_sentence
+  ON word_occurrences (user_id, word_id, article_id, sentence_id)
+  WHERE sentence_id IS NOT NULL;
+
 -- =============================================================================
 -- 8. review_logs (복습 이력)
 -- =============================================================================

@@ -1,24 +1,22 @@
 # -*- coding: utf-8 -*-
-"""기사 관련 서비스 - articles repository 래핑"""
-from datetime import datetime
+"""기사 관련 서비스 — PostgreSQL 없이 JSON 캐시(storage)만 사용."""
 from typing import Any, Dict, List, Optional, Tuple
 
-from ..repositories import articles_repo
-from ..tokenizer import split_sentences
 from ..fetcher import fetch_article_body_from_web
+from ..storage import cache_article as storage_cache_article, get_article_cache as storage_get_article_cache, load_articles
+from ..tokenizer import split_sentences
 
 
-def _parse_published(published: str) -> Optional[datetime]:
-    """published 문자열을 datetime으로 파싱"""
+def _parse_published(published: str) -> str:
     if not published:
-        return None
-    try:
-        return datetime.fromisoformat(published.replace("Z", "+00:00"))
-    except Exception:
-        try:
-            return datetime.strptime(published[:10], "%Y-%m-%d")
-        except Exception:
-            return None
+        return ""
+    return published[:10] if len(published) >= 10 else published
+
+
+def _article_id_for_url(url: str) -> int:
+    """UI·세션용 정수 ID (DB 대체)."""
+    h = abs(hash(url))
+    return h % (2**31 - 1) or 1
 
 
 def fetch_and_save_article(
@@ -31,73 +29,37 @@ def fetch_and_save_article(
     raw_payload: Optional[Dict[str, Any]] = None,
     metadata: Optional[Dict[str, Any]] = None,
     sentence_translations: Optional[List[str]] = None,
+    force_refresh: bool = False,
 ) -> Dict[str, Any]:
     """
-    기사 fetch 후 DB에 저장. article_id, title, body_text, sentences 반환.
-
-    - DB에 있으면 body_text 사용, 없으면 웹에서 fetch
-    - 문장은 항상 재동기화 (delete + insert)
-    - body_translation, raw_payload, metadata hook 지원
-    - sentence_translations: 문장별 번역 리스트 (order_no 순)
-
-    반환: {
-        "article_id": int,
-        "title": str,
-        "body_text": str,
-        "body_translation": str | None,
-        "sentences": List[str],
-        "article": dict,
-    }
+    기사 fetch 후 JSON 캐시에 저장.
+    반환: article_id(해시), title, body_text, sentences 등
     """
-    pub_dt = _parse_published(published)
-    payload = raw_payload or metadata
+    _ = (body_translation, raw_payload, metadata, sentence_translations)  # 향후 확장용
 
-    # 1. DB 캐시 확인
-    existing = articles_repo.get_article_by_url(url)
+    cached = storage_get_article_cache(url) if not force_refresh else None
+    if cached and body_text is None:
+        title_guess, body_guess = cached
+        title = title or title_guess
+        body_text = body_guess or ""
 
-    if existing and body_text is None:
-        body_text = existing.get("body_text", "")
-        title = title or existing.get("title", "")
-
-    # 2. 웹에서 fetch (body_text 없을 때)
-    if not body_text or not body_text.strip():
+    if force_refresh or not body_text or not str(body_text).strip():
         fetched_title, fetched_body = fetch_article_body_from_web(url)
         title = title or fetched_title
         body_text = fetched_body or ""
 
-    # 3. 기사 upsert
-    article_row = articles_repo.upsert_article(
-        url=url,
-        title=title or "기사",
-        body_text=body_text,
-        published_at=pub_dt,
-        body_translation=body_translation,
-        raw_payload=payload,
-    )
-    article_id = article_row["id"]
-
-    # 4. 문장 재동기화
-    sentences = split_sentences(body_text)
-    articles_repo.delete_article_sentences(article_id)
-    trans_list = sentence_translations or []
-    for order_no, sent in enumerate(sentences):
-        if not sent.strip():
-            continue
-        trans = trans_list[order_no] if order_no < len(trans_list) else None
-        articles_repo.create_article_sentence(
-            article_id,
-            order_no,
-            sent.strip(),
-            sentence_translation=trans,
-        )
-
+    title = title or "기사"
+    pub = _parse_published(published)
+    storage_cache_article(url, title, body_text or "", published=pub)
+    sentences = split_sentences(body_text or "")
+    aid = _article_id_for_url(url)
     return {
-        "article_id": article_id,
-        "title": article_row.get("title", title or "기사"),
-        "body_text": body_text,
-        "body_translation": body_translation or article_row.get("body_translation"),
+        "article_id": aid,
+        "title": title,
+        "body_text": body_text or "",
+        "body_translation": body_translation,
         "sentences": sentences,
-        "article": article_row,
+        "article": {"id": aid, "url": url, "title": title},
     }
 
 
@@ -108,24 +70,23 @@ def cache_article(
     published: str = "",
 ) -> int:
     """기사 캐시 저장. article_id 반환."""
-    result = fetch_and_save_article(url, published=published, title=title, body_text=body)
-    return result["article_id"]
+    r = fetch_and_save_article(url, published=published, title=title, body_text=body)
+    return int(r["article_id"])
 
 
 def get_article_cache(url: str) -> Optional[Tuple[str, str]]:
     """캐시에서 기사 조회. (title, body_text) 또는 None."""
-    row = articles_repo.get_article_by_url(url)
-    if not row:
-        return None
-    return row.get("title", ""), row.get("body_text", "")
+    return storage_get_article_cache(url)
 
 
 def get_recent_article() -> Optional[dict]:
     """최근 캐시된 기사 1건."""
-    rows = articles_repo.get_recent_articles(limit=1)
-    return rows[0] if rows else None
+    arts = load_articles()
+    if not arts:
+        return None
+    a = arts[-1]
+    return {"url": a.get("url", ""), "title": a.get("title", ""), "published": a.get("published", "")}
 
 
 def get_cached_articles_count() -> int:
-    """캐시된(읽은) 기사 수"""
-    return articles_repo.count_articles()
+    return len(load_articles())

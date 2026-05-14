@@ -1,10 +1,17 @@
 # -*- coding: utf-8 -*-
-"""기존 DB에 master 테스트 계정 추가 (id: master, pw: hulkhulk67!)"""
+"""기존 DB에 master, 자동로그인 계정 추가"""
 import sys
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
+
+# master: hulkhulk67! / leehuunjoo67@gmail.com: hulkhulk67! (자동로그인용)
+ACCOUNTS = [
+    ("master", "hulkhulk67!", "테스트 관리자"),
+    ("leehuunjoo67@gmail.com", "hulkhulk67!", "자동로그인"),
+]
+
 
 def main():
     from core.config import get_db_config
@@ -27,22 +34,24 @@ def main():
             host=host, port=port, user=user, password=password, dbname=dbname
         )
         cur = conn.cursor()
-        cur.execute(
-            """
-            INSERT INTO users (username, password_hash, display_name, is_active)
-            VALUES (%s, %s, %s, true)
-            ON CONFLICT (username) DO NOTHING
-            """,
-            ("master", hash_password("hulkhulk67!"), "테스트 관리자"),
-        )
+        for username, pw, display_name in ACCOUNTS:
+            cur.execute(
+                """
+                INSERT INTO users (username, password_hash, display_name, is_active)
+                VALUES (%s, %s, %s, true)
+                ON CONFLICT (username) DO NOTHING
+                """,
+                (username, hash_password(pw), display_name),
+            )
         conn.commit()
         cur.close()
         conn.close()
-        print("✅ master 계정 추가 완료 (이미 있으면 건너뜀)")
+        print("[OK] 계정 추가 완료 (master, leehuunjoo67@gmail.com)")
         return 0
     except Exception as e:
         print(f"오류: {e}")
         return 1
+
 
 if __name__ == "__main__":
     sys.exit(main())

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#3b82f6">
+  <title>NHK Easy Reader</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; overflow: hidden; }
+    .err { font-family: -apple-system, sans-serif; padding: 1rem; text-align: center; color: #64748b; }
+    .loading { font-family: -apple-system, sans-serif; padding: 1rem; text-align: center; color: #64748b; }
+  </style>
+</head>
+<body>
+  <div id="err" class="err" style="display:none;">서버 주소를 불러오지 못했습니다. PC에서 python run_mobile.py 를 실행한 뒤 다시 시도하세요.</div>
+  <div id="loading" class="loading" style="display:none;">연결 중...</div>
+  <script>
+    (function() {
+      var URL_REGISTRY = 'https://gist.githubusercontent.com/leehj67/2fb97f6f0f19c09b4db5ce7ef86a5549/raw/url.json';
+      var FALLBACK_URL = 'https://majority-continuous-preceding-documents.trycloudflare.com';
+      var errDiv = document.getElementById('err');
+      var loadingDiv = document.getElementById('loading');
+
+      /* iframe 대신 전체 WebView 이동: Streamlit XSRF 쿠키(SameSite)가 크로스 사이트 iframe에서 막히는 경우가 많음 */
+      function loadUrl(url) {
+        if (!url || url.indexOf('http') !== 0) {
+          errDiv.style.display = 'block';
+          loadingDiv.style.display = 'none';
+          return;
+        }
+        errDiv.style.display = 'none';
+        loadingDiv.style.display = 'block';
+        window.location.replace(url);
+      }
+
+      if (URL_REGISTRY && URL_REGISTRY.indexOf('http') === 0) {
+        loadingDiv.style.display = 'block';
+        fetch(URL_REGISTRY, { cache: 'no-store' })
+          .then(function(r) { return r.json(); })
+          .then(function(data) {
+            var url = (data && data.url) ? data.url.trim() : '';
+            loadUrl(url || FALLBACK_URL);
+          })
+          .catch(function() {
+            loadUrl(FALLBACK_URL);
+          });
+      } else {
+        loadUrl(FALLBACK_URL);
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# Cloudflare Named Tunnel - 고정 URL
+# 설정 전 TUNNEL_SETUP.md 참고
+# 1. cloudflared tunnel login  (브라우저에서 로그인)
+# 2. cloudflared tunnel create nhk-easy-reader
+# 3. 아래 tunnel, credentials-file, hostname 수정
+# 4. Cloudflare DNS에 CNAME 레코드 추가
+
+tunnel: REPLACE-WITH-TUNNEL-UUID
+credentials-file: C:\Users\USER\.cloudflared\REPLACE-WITH-TUNNEL-UUID.json
+
+ingress:
+  - hostname: app.yourdomain.xyz
+    service: http://localhost:8510
+  - service: http_status:404

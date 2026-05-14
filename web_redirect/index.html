@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NHK Easy Reader - 연결 중</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #f8fafc; }
+    .box { text-align: center; padding: 2rem; }
+    .spinner { width: 40px; height: 40px; border: 3px solid #e2e8f0; border-top-color: #3b82f6; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 1rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .err { color: #dc2626; margin-top: 1rem; }
+    a { color: #3b82f6; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="spinner"></div>
+    <p>NHK Easy Reader 연결 중...</p>
+    <p id="err" class="err" style="display:none;"></p>
+  </div>
+  <script>
+    (function() {
+      var GIST_URL = 'https://gist.githubusercontent.com/leehj67/2fb97f6f0f19c09b4db5ce7ef86a5549/raw/url.json';
+      fetch(GIST_URL, { cache: 'no-store' })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          var url = (data && data.url) ? data.url.trim() : '';
+          if (url && url.indexOf('http') === 0) {
+            window.location.replace(url);
+          } else {
+            throw new Error('URL 없음');
+          }
+        })
+        .catch(function(e) {
+          document.querySelector('.spinner').style.display = 'none';
+          var err = document.getElementById('err');
+          err.textContent = '연결 실패: ' + (e.message || '서버를 확인하세요');
+          err.style.display = 'block';
+        });
+    })();
+  </script>
+</body>
+</html>

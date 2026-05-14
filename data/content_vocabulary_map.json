@@ -1,0 +1,58 @@
+[
+  {
+    "id": "cvm_71250f93a705",
+    "content_id": "fc_22e5be7e86c74de4",
+    "vocabulary_id": "今日",
+    "is_known": false,
+    "importance_score": 1.0
+  },
+  {
+    "id": "cvm_666d3941975f",
+    "content_id": "fc_22e5be7e86c74de4",
+    "vocabulary_id": "無理",
+    "is_known": false,
+    "importance_score": 1.0
+  },
+  {
+    "id": "cvm_e269d9d623fa",
+    "content_id": "fc_22e5be7e86c74de4",
+    "vocabulary_id": "津波",
+    "is_known": true,
+    "importance_score": 1.0
+  },
+  {
+    "id": "cvm_b27b4c120f6f",
+    "content_id": "fc_22e5be7e86c74de4",
+    "vocabulary_id": "大震災",
+    "is_known": true,
+    "importance_score": 1.0
+  },
+  {
+    "id": "cvm_250989004b4c",
+    "content_id": "fc_b002db60c4f84f59",
+    "vocabulary_id": "終わる",
+    "is_known": false,
+    "importance_score": 1.0
+  },
+  {
+    "id": "cvm_1a931614d850",
+    "content_id": "fc_b002db60c4f84f59",
+    "vocabulary_id": "地獄",
+    "is_known": false,
+    "importance_score": 1.0
+  },
+  {
+    "id": "cvm_d9667af06a11",
+    "content_id": "fc_b002db60c4f84f59",
+    "vocabulary_id": "今日",
+    "is_known": false,
+    "importance_score": 1.0
+  },
+  {
+    "id": "cvm_ff8b862fe232",
+    "content_id": "fc_b002db60c4f84f59",
+    "vocabulary_id": "仕事",
+    "is_known": false,
+    "importance_score": 1.0
+  }
+]

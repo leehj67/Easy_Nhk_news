@@ -49,26 +49,96 @@ def save_settings(settings: Dict[str, str]) -> None:
     _save_json(SETTINGS_PATH, settings)
 
 
-# ---------- Words ----------
+# ---------- Words + occurrences (기기 localStorage 또는 data/*.json) ----------
+
+_STORE_BUNDLE_CACHE_KEY = "_nhk_store_bundle_cache"
+
+
+def _bundle_session_cache() -> Optional[Dict]:
+    """Streamlit 세션 state. 비 Streamlit 환경이면 None."""
+    try:
+        import streamlit as st
+
+        _ = st.session_state
+        return st.session_state
+    except Exception:
+        return None
+
+
+def _script_run_token() -> Optional[int]:
+    """같은 스크립트 실행(run) 안에서는 동일, 리런마다 달라져 캐시가 이전 실행에 묶이지 않게 함."""
+    try:
+        from streamlit.runtime.scriptrunner import get_script_run_ctx
+
+        ctx = get_script_run_ctx()
+        if ctx is None:
+            return None
+        return id(ctx)
+    except Exception:
+        return None
+
+
+def _load_store_bundle() -> Dict[str, List[Dict]]:
+    """words + occurrences 한 번에 로드 (브라우저 우선, 없으면 파일)."""
+    token = _script_run_token()
+    ss = _bundle_session_cache()
+    if ss is not None and token is not None:
+        cached = ss.get(_STORE_BUNDLE_CACHE_KEY)
+        if isinstance(cached, dict) and cached.get("_run_token") == token:
+            return cached["bundle"]
+
+    from .device_storage import normalize_store, read_store_from_browser
+
+    raw = read_store_from_browser()
+    if raw is not None:
+        words, occ = normalize_store(raw)
+        bundle = {"words": list(words), "occurrences": list(occ)}
+    else:
+        words = _load_json(WORDS_PATH, [])
+        occ = _load_json(WORD_OCCURRENCES_PATH, [])
+        bundle = {
+            "words": words if isinstance(words, list) else [],
+            "occurrences": occ if isinstance(occ, list) else [],
+        }
+    if ss is not None and token is not None:
+        ss[_STORE_BUNDLE_CACHE_KEY] = {"_run_token": token, "bundle": bundle}
+    return bundle
+
+
+def _save_store_bundle(words: List[Dict], occurrences: List[Dict]) -> None:
+    """브라우저에 저장 성공 시 서버 파일은 건드리지 않음(다 사용자 섞임 방지). 실패 시에만 파일."""
+    from .device_storage import write_store_to_browser
+
+    store = {"v": 1, "words": words, "occurrences": occurrences}
+    ss = _bundle_session_cache()
+    token = _script_run_token()
+    bundle_out = {"words": list(words), "occurrences": list(occurrences)}
+    if write_store_to_browser(store):
+        if ss is not None and token is not None:
+            ss[_STORE_BUNDLE_CACHE_KEY] = {"_run_token": token, "bundle": bundle_out}
+        return
+    _save_json(WORDS_PATH, words)
+    _save_json(WORD_OCCURRENCES_PATH, occurrences)
+    if ss is not None and token is not None:
+        ss[_STORE_BUNDLE_CACHE_KEY] = {"_run_token": token, "bundle": bundle_out}
+
 
 def load_words() -> List[Dict]:
-    out = _load_json(WORDS_PATH, [])
-    return out if isinstance(out, list) else []
+    return list(_load_store_bundle()["words"])
 
 
 def save_words(words: List[Dict]) -> None:
-    _save_json(WORDS_PATH, words)
+    b = _load_store_bundle()
+    _save_store_bundle(words, b["occurrences"])
 
-
-# ---------- Word occurrences ----------
 
 def load_occurrences() -> List[Dict]:
-    out = _load_json(WORD_OCCURRENCES_PATH, [])
-    return out if isinstance(out, list) else []
+    return list(_load_store_bundle()["occurrences"])
 
 
 def save_occurrences(occurrences: List[Dict]) -> None:
-    _save_json(WORD_OCCURRENCES_PATH, occurrences)
+    b = _load_store_bundle()
+    _save_store_bundle(b["words"], occurrences)
 
 
 # ---------- Words: upsert ----------
@@ -164,12 +234,21 @@ def add_occurrence(
 
 # ---------- Articles: cache ----------
 
+
+def _norm_article_url_key(url: str) -> str:
+    u = (url or "").strip().rstrip("/")
+    if "?" in u:
+        u = u.split("?")[0].rstrip("/")
+    return u
+
+
 def cache_article(url: str, title: str, body: str, published: str = "") -> None:
     """기사 본문 캐시 저장 (articles.json)"""
     articles = load_articles()
     pub = published[:10] if published else _today()
+    key = _norm_article_url_key(url)
     for i, a in enumerate(articles):
-        if a.get("url") == url:
+        if _norm_article_url_key(a.get("url", "")) == key:
             articles[i] = {"url": url, "title": title, "published": pub, "body": body}
             save_articles(articles)
             return
@@ -180,8 +259,9 @@ def cache_article(url: str, title: str, body: str, published: str = "") -> None:
 def get_article_cache(article_url: str) -> Optional[Tuple[str, str]]:
     """캐시에서 기사 본문 조회. (title, body) 또는 None"""
     articles = load_articles()
+    key = _norm_article_url_key(article_url)
     for a in articles:
-        if a.get("url") == article_url:
+        if _norm_article_url_key(a.get("url", "")) == key:
             return a.get("title", ""), a.get("body", "")
     return None
 
@@ -255,7 +335,7 @@ def get_remembered_words() -> List[Tuple[str, int, str]]:
     saved.sort(key=lambda w: w.get("last_seen_at", ""), reverse=True)
     return [
         (w["lemma"], w.get("seen_count", 0), w.get("last_seen_at", ""))
-        for w in saved[:100]
+        for w in saved
     ]
 
 
@@ -286,6 +366,19 @@ def update_word_memo(lemma: str, memo: str) -> None:
     for w in words:
         if w.get("lemma") == lemma:
             w["memo"] = memo or ""
+            save_words(words)
+            return
+
+
+def submit_review_result(lemma: str, result: str) -> None:
+    """복습 자가평가: 상태 + review_count."""
+    words = load_words()
+    now = _now_iso()
+    for w in words:
+        if w.get("lemma") == lemma:
+            w["status"] = result
+            w["last_seen_at"] = now
+            w["review_count"] = int(w.get("review_count", 0)) + 1
             save_words(words)
             return
 
@@ -360,13 +453,17 @@ def get_recent_article() -> Optional[Dict]:
     return {"url": a.get("url", ""), "title": a.get("title", ""), "published": a.get("published", "")}
 
 
+# ---------- 저장소 상태 (DB 없음) ----------
+
+
+def storage_health() -> Dict[str, Any]:
+    """UI용: PostgreSQL 없이 기기/로컬 JSON 저장 안내."""
+    return {"ok": True, "message": "이 기기(브라우저)에 단어가 저장됩니다", "detail": None}
+
+
 # ---------- DB 호환 (init_db) ----------
 
+
 def init_db() -> None:
-    """저장소 초기화: data/ 폴더 생성, DB 사용 시 default_user 생성"""
+    """data/ 폴더만 보장. PostgreSQL은 사용하지 않습니다."""
     ensure_data_dir()
-    try:
-        from .repositories.users_repo import create_default_user_if_not_exists
-        create_default_user_if_not_exists()
-    except Exception:
-        pass  # DB 미설정 또는 연결 불가 시 무시

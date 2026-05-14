@@ -1,0 +1,16 @@
+동적 URL 모드 - 3단계 설정
+========================
+
+1. GitHub 토큰 생성
+   - https://github.com/settings/tokens
+   - Generate new token (classic)
+   - gist 권한 체크 후 생성
+
+2. 아래 명령 실행 (토큰 붙여넣기)
+   python scripts/setup_dynamic_url.py ghp_여기에_토큰_붙여넣기
+
+3. APK 재빌드
+   cd apk_build && node build.js && npx cap sync android
+   (gradlew assembleDebug 또는 run_mobile.py로 빌드)
+
+완료 후: python run_mobile.py 실행 시 앱이 새 주소 자동 추적

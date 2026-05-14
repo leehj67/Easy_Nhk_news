@@ -1,7 +1,10 @@
-streamlit
+streamlit>=1.28.0
+python-dotenv>=1.0.0
+streamlit_js_eval
 requests
 beautifulsoup4
 feedparser
 fugashi[unidic-lite]
 deep-translator
-psycopg2-binary
+fastapi
+uvicorn[standard]

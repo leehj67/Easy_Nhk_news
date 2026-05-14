@@ -90,16 +90,10 @@ def test_connection() -> bool:
 
 
 def health_check() -> Dict[str, Any]:
-    """
-    Streamlit 등에서 호출 가능한 헬스 체크.
-    {"ok": bool, "message": str, "detail": str|None}
-    """
+    """PostgreSQL 미사용 — 기기/로컬 JSON 저장 상태."""
     try:
-        test_connection()
-        return {"ok": True, "message": "DB 연결 정상", "detail": None}
-    except ImportError as e:
-        return {"ok": False, "message": "psycopg2 미설치", "detail": str(e)}
-    except RuntimeError as e:
-        return {"ok": False, "message": "DB 설정 누락", "detail": str(e)}
-    except Exception as e:
-        return {"ok": False, "message": "DB 연결 실패", "detail": str(e)}
+        from .storage import storage_health
+
+        return storage_health()
+    except Exception:
+        return {"ok": True, "message": "로컬 저장", "detail": None}

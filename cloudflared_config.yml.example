@@ -1,0 +1,12 @@
+# Cloudflare Named Tunnel 설정 예시
+# 1. 이 파일을 cloudflared_config.yml 로 복사
+# 2. tunnel, credentials-file, hostname 값을 본인 환경에 맞게 수정
+# 3. TUNNEL_SETUP.md 가이드 참고
+
+tunnel: <터널-ID-UUID>
+credentials-file: C:\Users\USER\.cloudflared\<터널-ID>.json
+
+ingress:
+  - hostname: nhk.yourdomain.xyz
+    service: http://localhost:8510
+  - service: http_status:404

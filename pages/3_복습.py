@@ -3,16 +3,19 @@
 import html
 import streamlit as st
 
+import core.streamlit_bootstrap  # noqa: F401
+
 from core.auth_context import require_login
 from core import (
-    init_db,
     inject_custom_css,
+    render_theme_toggle,
     load_words,
     get_word_occurrences,
     submit_review_evaluation,
     render_speak_button,
     render_empty_state,
     lookup_dictionary,
+    highlight_word_in_sentence,
 )
 
 # 복습 페이지 전용 CSS — 학습용 웹앱, compact, 카드 중심
@@ -104,6 +107,8 @@ def main() -> None:
     if not require_login():
         return
     inject_custom_css()
+    with st.sidebar:
+        render_theme_toggle(key="review_theme")
     st.markdown(REVIEW_CSS, unsafe_allow_html=True)
 
     if "review_idx" not in st.session_state:
@@ -167,8 +172,8 @@ def main() -> None:
     w = to_review[idx]
     lemma = w.get("lemma", "")
     reading = w.get("reading", "") or ""
+    info = lookup_dictionary(lemma, lemma)
     if not reading:
-        info = lookup_dictionary(lemma, lemma)
         reading = info.get("reading", "") or "-"
     meanings = w.get("meanings", []) or []
 
@@ -237,6 +242,9 @@ def main() -> None:
                 st.markdown(f'<div class="review-meanings"><strong>뜻</strong> {meanings_esc}</div>', unsafe_allow_html=True)
             else:
                 st.caption("뜻 미확인")
+            from core.ui_helpers import render_dictionary_extras
+
+            render_dictionary_extras(info, link_query=lemma, key_prefix=f"rev-{idx}-{lemma}")
             st.markdown("</div>", unsafe_allow_html=True)
 
         # 예문 영역 (카드 안 section, compact)
@@ -248,13 +256,15 @@ def main() -> None:
                 st.markdown('<div class="review-examples-empty">저장된 예문이 없습니다</div>', unsafe_allow_html=True)
             else:
                 for occ in occurrences:
-                    sent = html.escape(occ.get("sentence", ""))
+                    sent = occ.get("sentence", "")
+                    surf = occ.get("surface", lemma)
+                    sent_html = highlight_word_in_sentence(sent, surf, lemma=lemma)
                     trans = html.escape(occ.get("sentence_translation", ""))
                     title = html.escape((occ.get("article_title", "") or "").strip())
                     if title and len(title) > 40:
                         title = title[:37] + "..."
                     block = f'<div class="review-example-block">'
-                    block += f'<div class="review-example-jp">{sent}</div>'
+                    block += f'<div class="review-example-jp">{sent_html}</div>'
                     if trans:
                         block += f'<div class="review-example-ko">{trans}</div>'
                     if title:

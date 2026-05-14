@@ -6,6 +6,22 @@ from typing import Any, Dict, List, Optional
 from ..db import transaction
 
 
+DICT_ONLY_ARTICLE_URL = "https://nhk-easy-reader.local/dict-search"
+
+
+def get_or_create_dict_article() -> dict:
+    """사전 검색 전용 기사 (단어 저장용). 없으면 생성."""
+    existing = get_article_by_url(DICT_ONLY_ARTICLE_URL)
+    if existing:
+        return existing
+    return upsert_article(
+        url=DICT_ONLY_ARTICLE_URL,
+        title="사전 검색",
+        body_text="(사전에서 검색한 단어)",
+        source="dict_search",
+    )
+
+
 def get_article_by_url(url: str) -> Optional[dict]:
     """URL로 기사 조회"""
     with transaction() as cur:
